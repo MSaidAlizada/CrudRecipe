@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Card, CardContent, CardHeader, CardMedia, Typography } from "@mui/material";
 
-const RecipeCard = (name, image, description, recipeId) => {
+const RecipeCard = ({name, image, description, recipeId}) => {
     return ( 
         <Card>
             <CardHeader title={name} />
