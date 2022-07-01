@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography';
 const Navbar = () => {
     return ( 
         <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar position="static" sx={{bgcolor:"#94B49F"}}>
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             RECIPES
