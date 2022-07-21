@@ -7,8 +7,8 @@ import Navbar from "./Navbar/Navbar";
 function App() {
   return (
     <div className="App">
-      <Navbar />
       <BrowserRouter>
+        <Navbar />
         <Routes>
           <Route index element={<Home/>} />
           <Route path="add" element={<AddRecipe/>} />
