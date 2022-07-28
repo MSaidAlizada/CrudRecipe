@@ -3,6 +3,7 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
+import recipeRoutes from "./routes/recipe.js"
 dotenv.config();
 
 const app = express();
@@ -12,6 +13,7 @@ app.use(express.urlencoded({
     extended: true
 }));
 app.use(cors);
+app.use("/", recipeRoutes);
 
 //connecting to database
 mongoose.connect(process.env.DB_CONNECTION)
