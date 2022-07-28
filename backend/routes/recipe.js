@@ -3,7 +3,7 @@ import express from "express";
 
 const router = express.Router();
 
-router.get("/getrecipe", getRecipe);
+router.get("/getrecipe/:id", getRecipe);
 router.get("/getallrecipe", getAllRecipe);
 router.post("/createrecipe", createRecipe);
 
