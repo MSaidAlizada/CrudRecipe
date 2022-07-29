@@ -12,8 +12,8 @@ function App() {
         <Navbar />
         <Routes>
           <Route index element={<Home/>} />
-          <Route path="add" element={<AddRecipe />} />
-          <Route path="recipe" element={<Recipe/>} />
+          <Route path="add" element={<AddRecipe/>} />
+          <Route path="recipe/:id" element={<Recipe/>} />
         </Routes>
       </BrowserRouter>
     </div>

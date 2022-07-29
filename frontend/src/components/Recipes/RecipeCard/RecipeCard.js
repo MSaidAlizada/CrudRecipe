@@ -2,11 +2,11 @@ import React from "react";
 import { Link } from 'react-router-dom';
 import { Button, Card, CardContent, CardHeader, CardMedia, Typography } from "@mui/material";
 
-const RecipeCard = ({name, image, description, recipeId}) => {
+const RecipeCard = ({title, image, description, recipeId}) => {
     return ( 
         <Card>
-            <CardHeader title={name} />
-            <CardMedia component="img" image={image} alt={name} height="130"/>
+            <CardHeader title={title} />
+            <CardMedia component="img" image={image} alt={title} height="130"/>
             <CardContent>
                 <Typography>{description}</Typography>
             </CardContent>

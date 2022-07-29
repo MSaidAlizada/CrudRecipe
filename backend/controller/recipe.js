@@ -31,5 +31,5 @@ export function createRecipe(req, res) {
     const imageFile = req.body.imageFile;
     const newRecipe = new Recipe({ title: title, description: description, instruction: instruction, imageFile: imageFile });
     newRecipe.save();
-    res.status.json(newRecipe);
+    res.status(201).json(newRecipe);
 }
