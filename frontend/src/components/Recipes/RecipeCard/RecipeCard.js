@@ -2,15 +2,15 @@ import React from "react";
 import { Link } from 'react-router-dom';
 import { Button, Card, CardContent, CardHeader, CardMedia, Typography } from "@mui/material";
 
-const RecipeCard = ({title, image, description, recipeId}) => {
+const RecipeCard = ({ title, imageFile, description, id }) => {
     return ( 
         <Card>
             <CardHeader title={title} />
-            <CardMedia component="img" image={image} alt={title} height="130"/>
+            <CardMedia component="img" image={imageFile} alt={title} height="130"/>
             <CardContent>
-                <Typography>{description}</Typography>
+                <Typography>{description.length <= 100 ? description : description.slice(0,100) + "...."}</Typography>
             </CardContent>
-            <Button variant="contained" component={Link} to="/recipe" sx={{margin: 2}}>Open</Button>
+            <Button variant="contained" component={Link} to={`/recipe/${id}`} sx={{margin: 2}}>Open</Button>
         </Card>
      );
 }
