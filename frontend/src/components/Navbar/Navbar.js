@@ -6,9 +6,10 @@ const Navbar = () => {
     return ( 
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" sx={{bgcolor:"#94B49F", marginBottom: "10px"}}>
-        <Toolbar>
-          <Typography color="inherit" variant="h6" component={Link} to="/" sx={{ textDecoration: 'none'}}>RECIPES</Typography>
-          <Button color="inherit" variant="outlined" component={Link} to="/add" sx={{marginLeft: "auto"}}>Add new</Button>
+        <Toolbar sx={{justifyContent: 'right'}}>
+            <Typography color="inherit" variant="h6" component={Link} to="/" sx={{ textDecoration: 'none', marginRight: "auto" }}>RECIPES</Typography>
+            <Button color="inherit" variant="outlined" component={Link} to="/favourited" sx={{marginRight: 2}}>Favourited</Button>
+            <Button color="inherit" variant="outlined" component={Link} to="/add">Add new</Button>
         </Toolbar>
       </AppBar>
     </Box>

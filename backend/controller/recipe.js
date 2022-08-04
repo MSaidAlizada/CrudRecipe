@@ -1,8 +1,8 @@
 import mongoose from "mongoose";
 import Recipe from "../models/recipe.js";
 
-export function getAllRecipe(req, res) {
-    Recipe.find({}, (err, recipes) => {
+export const getAllRecipe = async (req, res) => {
+    await Recipe.find({}).exec((err, recipes) => {
         if (!err) {
             res.status(200).json(recipes);
         }
@@ -12,9 +12,9 @@ export function getAllRecipe(req, res) {
     })
 }
 
-export function getRecipe(req, res) {
+export async function getRecipe(req, res) {
     const id = req.params.id;
-    Recipe.findById(id, (err, recipe) => {
+    await Recipe.findById(id).exec((err, recipe) => {
         if (!err) {
             res.status(200).json(recipe);
         }
@@ -24,33 +24,40 @@ export function getRecipe(req, res) {
     })
 }
 
-export function createRecipe(req, res) {
+export async function createRecipe(req, res) {
     const title = req.body.title;
     const description = req.body.description;
     const instruction = req.body.instruction;
     const imageFile = req.body.imageFile;
     const newRecipe = new Recipe({ title: title, description: description, instruction: instruction, imageFile: imageFile, favourited: false });
-    newRecipe.save();
+    await newRecipe.save();
     res.status(201).json(newRecipe);
 }
 
 export function deleteRecipe(req, res) {
-    Recipe.findByIdAndRemove(req.params.id )
-    res.json({ message: "Succesfully deleted" })
+    const id = req.params.id;
+    Recipe.findByIdAndDelete(id).exec((err, deleteRecipe) => {
+        if (!err) {
+            res.json({ message: "Succesfully deleted: " + deleteRecipe })
+        }
+        else {
+            console.log(err);
+        }
+    });
 }
 
-export function favourite(req, res) {
+export async function favourite(req, res) {
     const id = req.params.id;
-    Recipe.findById(id, (err, recipe) => {
+    await Recipe.findById(id).exec(async (err, recipe) => {
         var newRecipe = recipe;
-        newRecipe.favorited = !newRecipe.favorited;
-        Recipe.findByIdAndUpdate(id, newRecipe);
+        newRecipe.favourited = !newRecipe.favourited;
+        await Recipe.findByIdAndUpdate(id, newRecipe);
         res.json(newRecipe);
     });
 }
 
-export function getFavourited(req, res) {
-    Recipe.find({ favourited: true }, (err, recipes) => {
+export async function getFavourited(req, res) {
+    await Recipe.find({ favourited: true }).exec((err, recipes) => {
         if (!err) {
             res.status(200).json(recipes);
         }

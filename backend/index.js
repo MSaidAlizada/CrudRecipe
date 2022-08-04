@@ -10,7 +10,8 @@ const app = express();
 
 //middleware
 app.use(express.urlencoded({
-    extended: true
+    extended: true,
+    limit: '50mb'
 }));
 app.use(cors());
 app.use("/", recipeRoutes);
