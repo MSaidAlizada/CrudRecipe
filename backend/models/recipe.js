@@ -5,6 +5,7 @@ const recipeSchema = new mongoose.Schema({
     description: String,
     instruction: String,
     imageFile: String,
+    favourited: Boolean,
 });
 
 var Recipe = mongoose.model('Recipe', recipeSchema);
