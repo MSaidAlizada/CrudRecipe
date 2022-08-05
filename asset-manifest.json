@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/CrudRecipe/static/css/main.83084703.css",
-    "main.js": "/CrudRecipe/static/js/main.49e86520.js",
+    "main.js": "/CrudRecipe/static/js/main.d5c793b6.js",
     "index.html": "/CrudRecipe/index.html",
     "main.83084703.css.map": "/CrudRecipe/static/css/main.83084703.css.map",
-    "main.49e86520.js.map": "/CrudRecipe/static/js/main.49e86520.js.map"
+    "main.d5c793b6.js.map": "/CrudRecipe/static/js/main.d5c793b6.js.map"
   },
   "entrypoints": [
     "static/css/main.83084703.css",
-    "static/js/main.49e86520.js"
+    "static/js/main.d5c793b6.js"
   ]
 }
