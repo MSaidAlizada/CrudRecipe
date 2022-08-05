@@ -1,18 +1,26 @@
 import { Grid } from "@mui/material";
 import React, {useState, useEffect} from "react";
 import RecipeCard from "./RecipeCard/RecipeCard";
-import { getAllRecipe } from "../../api/api";
+import { getAllRecipe, getFavourited } from "../../api/api";
 
-const Recipes = () => {
+const Recipes = ({type}) => {
     const [recipes, setRecipes] = useState([]);
     const [isUpdated, setIsUpdated] = useState(false);
     useEffect(() => {
-        getAllRecipe()
-            .then((res) => {
-                setRecipes(res.data)
-            });
+        if (type === "favourited") {
+            getFavourited()
+                .then((res) => {
+                    setRecipes(res.data)
+                })
+        }
+        else {
+            getAllRecipe()
+                .then((res) => {
+                    setRecipes(res.data)
+                });
+        }
         setIsUpdated(false);
-    }, [isUpdated]);
+    }, [isUpdated, type]);
     return ( 
         <div>
             <Grid container spacing={4} justifyContent="center">
