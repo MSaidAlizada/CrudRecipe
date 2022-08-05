@@ -18,5 +18,5 @@ app.use("/", recipeRoutes);
 
 //connecting to database
 mongoose.connect(process.env.DB_CONNECTION)
-    .then(() => app.listen(5000))
+    .then(() => app.listen(process.env.PORT))
     .catch((err) => console.log(err.message))
